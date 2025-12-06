@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* Slider Container */
+.slider-container {
+  position: relative;
+  width: 100%;
+  padding: 20px 0;
+}
+
+/* Category Title */
+.category-title {
+  font-family: 'Lato', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+/* Team Slider */
+.team-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 20px;
+  padding: 10px;
+  scrollbar-width: none; /* Firefox */
+}
+.team-slider::-webkit-scrollbar { display: none; } /* Chrome, Safari */
+
+/* Team Card */
+.team-card {
+  min-width: 250px;
+  max-width: 250px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  flex-shrink: 0;
+  font-family: 'Roboto', sans-serif;
+}
+.team-card img {
+  width: 100%;
+  height: 275px;
+  border-radius: 5%; /* your rounded edges */
+  object-fit: cover;
+  object-position: top; /* change to top, bottom, center, or % */
+  margin-bottom: 10px;
+}
+
+.team-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 5px 0;
+  color: #333;
+}
+.team-card p {
+  font-size: 14px;
+  color: #666;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Arrows */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45px;
+  height: 45px;
+  font-size: 24px;
+  background: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0; /* perfect vertical center */
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  user-select: none;
+  z-index: 10;
+}
+.arrow:hover {
+  background: #555;
+  transform: translateY(-50%) scale(1.1);
+}
+#left { left: 10px; }
+#right { right: 10px; }
+
+/* Responsive: mobile show 1-2 cards */
+@media (max-width: 768px) {
+  .team-card { min-width: 180px; max-width: 180px; }
+}
+@media (max-width: 480px) {
+  .team-card { min-width: 150px; max-width: 150px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="slider-container">
+  
+
+  <div id="slider" class="team-slider">
+    <div class="team-card">
+      <img src="https://images.pexels.com/photos/33639131/pexels-photo-33639131.jpeg" />
+      <h3>Arya Varshkar</h3>
+      <p>Director</p>
+    </div>
+    <div class="team-card">
+      <img src="https://images.pexels.com/photos/16771682/pexels-photo-16771682.jpeg" />
+      <h3>Naveen</h3>
+      <p>Director</p>
+    </div>
+    <div class="team-card">
+      <img src="https://images.pexels.com/photos/16771682/pexels-photo-16771682.jpeg" />
+      <h3>Lokesh Khesa</h3>
+      <p>Director</p>
+    </div>
+    <div class="team-card">
+      <img src="https://images.pexels.com/photos/16970494/pexels-photo-16970494.jpeg" />
+      <h3>Abhit Yadav</h3>
+      <p>Director</p>
+    </div>
+    <div class="team-card">
+      <img src="https://images.pexels.com/photos/16771673/pexels-photo-16771673.jpeg" />
+      <h3>Amit Yadav</h3>
+      <p>Director</p>
+    </div>
+    <div class="team-card">
+      <img src="https://images.pexels.com/photos/27798108/pexels-photo-27798108.jpeg" />
+      <h3>Krishna Chobay</h3>
+      <p>Director</p>
+    </div>
+    <div class="team-card">
+      <img src="https://images.pexels.com/photos/16969899/pexels-photo-16969899.jpeg" />
+      <h3>Sandeep</h3>
+      <p>Director</p>
+    </div>
+  </div>
+
+  <!-- Arrows -->
+  <span id="left" class="arrow">&#10094;</span>
+  <span id="right" class="arrow">&#10095;</span>
+</div>
+
+<script>
+// Horizontal scroll with arrows
+const slider = document.getElementById("slider");
+document.getElementById("left").onclick = () => slider.scrollLeft -= 280;
+document.getElementById("right").onclick = () => slider.scrollLeft += 280;
+
+// Mouse wheel horizontal scroll
+slider.addEventListener("wheel", function(e) {
+  e.preventDefault();
+  slider.scrollLeft += e.deltaY;
+});
+</script>
+
+</body>
+</html>
